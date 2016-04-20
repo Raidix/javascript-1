@@ -2845,3 +2845,23 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
 # };
+
+## Useful Links
+
+### Tools
+
+* [SASS Playground](http://sassmeister.com/)
+* [JS Code Style Linter](http://jscs.info/)
+* [Page Rendering CSS Triggers](http://csstriggers.com/)
+* [Feature Compatibility Sheet](http://caniuse.com)
+
+### CSS
+
+* [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [Flex Bugs](https://github.com/philipwalton/flexbugs)
+* [BEM Definitions](https://ru.bem.info/method/definitions/)
+* [Ordering CSS3 Properties](https://css-tricks.com/ordering-css3-properties/)
+
+### Perfs
+
+* [jQuery and native class manipulations](http://jsperf.com/dom-class-manipulations)
