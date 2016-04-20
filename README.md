@@ -2846,6 +2846,151 @@ We encourage you to fork this guide and change the rules to fit your team's styl
 
 # };
 
+## Operators
+
+### 'with' operator
+
+The `with` operator should not be used.
+
+[⬆ back to top](#table-of-contents)
+
+### Ternary Operator
+
+The ternary operator should be written as in the examples:
+
+```js
+var x = a ? b : c;
+
+var y = a ?
+    longButSimpleOperandB : longButSimpleOperandC;
+
+var z = a ?
+    moreComplicatedB :
+    moreComplicatedC;
+```
+
+[⬆ back to TOC](#table-of-contents)
+
+### Unary Operators
+
+Unary operators should be typed without whitespace between them and their operands:
+
+```js
+var foo = !bar;
+```
+
+Exceptions from this rule are the unary [special JS operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Special_operators)).
+
+[⬆ back to top](#table-of-contents)
+
+## eval
+
+The `eval` function should be avoided.
+`json` serialized data should be parsed with [JSON.parse](https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/JSON/parse).
+
+[⬆ back to top](#table-of-contents)
+
+## undefined
+
+* Checking for `undefined` value of declared variable (e.g. function argument) should be done by using the strict equality operator:
+
+  > Explanation:
+  > * In modern browsers (`IE9+`, `Opera 12.16+`, `Firefox 4+`) [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined)
+  >   is immutable (a non-configurable, non-writable property of the global object).
+  > * It prevents undeclared variables usage.
+
+  **Good:**
+
+  ```js
+  x === undefined
+  ```
+
+  **Bad:**
+
+  ```js
+  typeof x === 'undefined'
+  x === void 0
+  ```
+
+  **Exceptions:**
+
+  * `typeof` should be used if you need to support old browsers (like `IE8`) where `window.undefined` property is mutable.
+  * `typeof` may be used in place where `string` type is expected:
+
+    ```js
+    switch (typeof x) {
+        case 'number':
+            // ...
+        case 'undefined':
+            // ...
+    }
+    ```
+
+* Checking for existence of a global variable should be done by using `typeof` operator or by checking existence of a property of the global object:
+
+  > Explanation: An attempt to access to undeclared variable will result an error.
+
+  ```js
+  if (typeof Foo !== 'undefined') {
+      // ...
+  }
+
+  // Also okay for browser only code (`window` is unavailable in Node.js)
+  if (window.Foo !== undefined) {
+      // ...
+  }
+  ```
+
+[⬆ back to top](#table-of-contents)
+
+## Parentheses
+
+* Should not be used with the unary operators `delete`, `typeof` and `void`, or with the keywords `return`, `throw` and `new`:
+
+  **Good**:
+
+  ```js
+  delete obj.key;
+  typeof x === 'number';
+  new Type();
+  throw new Error();
+  ```
+
+  **Bad**:
+
+  ```js
+  delete(obj.key);
+  typeof(x) === 'number';
+  new(Type)();
+  throw(new Error());
+  ```
+
+* Explicit parentheses in logical or mathematical expressions can be used to increase readability:
+
+  ```js
+  ((a - b > c) && c) || (c + d && d + 1) || e; // equivalent to a - b > c && c || c + d && d + 1 || e
+  ```
+
+[⬆ back to top](#table-of-contents)
+
+## Exceptions
+
+`throw` should be used with `new Error` or an object of a class derived from `Error`:
+
+**Good:**
+
+```js
+throw new Error('msg');
+```
+
+**Bad:**
+
+```js
+throw 'msg';
+```
+
+[⬆ back to top](#table-of-contents)
+
 ## Useful Links
 
 ### Tools
