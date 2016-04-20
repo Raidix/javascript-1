@@ -2991,6 +2991,138 @@ throw 'msg';
 
 [⬆ back to top](#table-of-contents)
 
+## Conditional Statements
+
+### if
+
+* The `else` keyword should be on the next line as the closing brace of the if-part of the statement:
+
+  ```js
+  if (test) {
+      // ...
+  }
+  else {
+      // ...
+  }
+  ```
+
+* Condition statements should not contain assignment operations:
+
+  **Good:**
+
+  ```js
+  var foo = bar();
+  if (foo > 0) {
+      // ...
+  }
+  ```
+
+  **Bad:**
+
+  ```js
+  var foo;
+  if ((foo = bar()) > 0) {
+      // ...
+  }
+  ```
+
+* Logical operators should not be used for conditional branching:
+
+  **Good:**
+
+  ```js
+  if (condition) {
+      actionIfTrue();
+  } 
+  else {
+      actionIfFalse();
+  }
+  ```
+
+  **Bad:**
+
+  ```js
+  condition && actionIfTrue() || actionIfFalse();
+  ```
+
+* Conditions longer than the [maximum line length](#general) should be divided as in the example:
+
+  ```js
+  if (longCondition ||
+      anotherLongCondition &&
+      yetAnotherLongCondition
+  ) {
+      // ...
+  }
+  ```
+
+* [Yoda conditions](http://en.wikipedia.org/wiki/Yoda_conditions) should not be used:
+
+  **Good:**
+  ```js
+  if (getType() === 'driving') {
+
+  }
+  ```
+
+  **Bad:**
+  ```js
+  if ('driving' === getType()) {
+
+  }
+  ```
+
+[⬆ back to top](#table-of-contents)
+
+### switch
+
+The switch statement should be written as in the example:
+
+```js
+switch (value) {
+    case 1:
+        // ...
+        break;
+
+    case 2:
+        // ...
+        break;
+
+    default:
+        // ...
+        // no break keyword on the last case
+}
+```
+
+[⬆ back to top](#table-of-contents)
+
+## Loops
+
+### for
+
+If possible, [Array.prototype.forEach](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) should be used instead of a `for` loop.
+
+```js
+[1, 2, 3].forEach(function (value) {
+    console.log(value);
+});
+```
+Performance-critical parts of the code can use a `for` statement.
+
+[⬆ back to top](#table-of-contents)
+
+### for (var i in obj)
+
+If possible, [Object.keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) should be used instead of a `for-in` construction.
+
+```js
+Object.keys(obj).forEach(function (key) {
+    console.log(key);
+});
+```
+
+[⬆ back to top](#table-of-contents)
+
 ## Useful Links
 
 ### Tools
