@@ -2,6 +2,8 @@
 
 *A mostly reasonable approach to JavaScript*
 
+> Forked from [Airbnb's Style Guide](https://github.com/airbnb/javascript)
+
 Other Style Guides
  - [ES5](es5/)
  - [React](react/)
